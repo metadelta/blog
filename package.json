@@ -1,0 +1,13 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node build.js && open index.html",
+    "deploy": "npm run build && surge ./build"
+  },
+  "author": "Gerald Nash",
+  "license": "ISC"
+}
