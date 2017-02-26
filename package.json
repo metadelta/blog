@@ -9,5 +9,8 @@
     "deploy": "npm run build && surge ./build"
   },
   "author": "Gerald Nash",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0"
+  }
 }
