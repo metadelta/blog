@@ -28,7 +28,7 @@ for(var i = 0; i < fs.readdirSync(htmlDir).length; i++){
   posts.push({
     title: title.substring(0, title.length - 1),
     subtitle: subtitle.substring(0, subtitle.length - 1),
-    link: 
+    link: link
   });
 }
 
@@ -36,20 +36,21 @@ for(var i = 0; i < fs.readdirSync(htmlDir).length; i++){
 var $ = cheerio.load(__dirname + '/index.html');
 
 var injectionPayload = '';
-
 for(var i = 0; i < posts.length; i++){
-  injectionPayload.concat('
-  <header class="major">\n
-    <h2>\n'
-  + posts[i].title +
-  '\n  </h2>\n
-  </header>\n
-  \n<p>\n'
+  injectionPayload += (''+
+  '\n<header class="major">\n' + 
+  '  <h2>\n    ' + 
+    posts[i].title +
+  '\n  </h2>\n' +
+  '</header>\n' +
+  '\n<p>\n'
   + posts[i].subtitle +
-  '\n</p>\n
-  <ul class="actions">
-    <li><a href="' + posts[i].link+ '">Read This</a></li>
-  </ul>');
+  '\n</p>\n' +
+  '<ul class="actions"\n' +
+  '  <li><a href="' + posts[i].link+ '">Read This</a></li>\n' +
+  '</ul>');
 }
 
-$('#one').html(injectionPayload);
+// console.log('Payload to be injected into index.html: ' + injectionPayload);
+
+// console.log('Original html: '+ getFileString($.html()) );
