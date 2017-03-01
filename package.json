@@ -1,12 +1,13 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "A blog for metadelta.",
   "main": "build.js",
   "scripts": {
-    "build": "node build.js",
+    "start": "node build.js",
+    "build": "npm start",
     "test": "node build.js && open index.html",
-    "deploy": "npm run build && surge ./build"
+    "deploy": "node build && surge ."
   },
   "author": "Gerald Nash",
   "license": "ISC",
